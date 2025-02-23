@@ -30,6 +30,84 @@
         <!-- Ici vous ajouterez schémas, détails théoriques et exemples de code -->
       </article>
       <!-- Ajoutez d'autres articles pour chaque technique -->
+      <article class="technique">
+        <h3>Régression Linéaire</h3>
+        
+        <!-- Fonctionnement -->
+        <section class="fonctionnement">
+          <h4>Fonctionnement</h4>
+          <p>
+            La régression linéaire est une méthode statistique qui permet de modéliser la relation linéaire entre une variable dépendante et une ou plusieurs variables indépendantes. L’objectif est de trouver la droite qui minimise l’erreur entre les valeurs prédites et les observations réelles.
+          </p>
+          <p>
+            Ce modèle est particulièrement utile pour effectuer des prédictions sur des données continues, comme par exemple estimer le prix d’un bien immobilier en fonction de sa surface.
+          </p>
+          <!-- Vous pouvez remplacer l'attribut src par le chemin vers votre image -->
+          <figure>
+            <img src="images/regression_lineaire.png" alt="Schéma illustrant la régression linéaire" style="max-width:100%;height:auto;">
+            <figcaption>Schéma illustrant l’ajustement d’une droite aux données</figcaption>
+          </figure>
+        </section>
+      
+        <!-- Théorie Mathématique -->
+        <section class="theorie">
+          <h4>Théorie Mathématique</h4>
+          <p>
+            La relation de la régression linéaire simple se définit par l’équation suivante :
+          </p>
+          <p style="font-style: italic;">y = β<sub>0</sub> + β<sub>1</sub>x</p>
+          <p>
+            Où :
+          </p>
+          <ul>
+            <li><strong>y</strong> représente la variable à prédire,</li>
+            <li><strong>x</strong> est la variable explicative,</li>
+            <li><strong>β<sub>0</sub></strong> est l’ordonnée à l’origine,</li>
+            <li><strong>β<sub>1</sub></strong> est le coefficient de régression qui représente l’impact de x sur y.</li>
+          </ul>
+          <p>
+            Pour trouver les valeurs optimales de β<sub>0</sub> et β<sub>1</sub>, on utilise la méthode des moindres carrés, qui minimise la somme des carrés des différences entre les valeurs observées et les valeurs prédites :
+          </p>
+          <p style="font-style: italic;">
+            Minimize Σ (y<sub>i</sub> - (β<sub>0</sub> + β<sub>1</sub>x<sub>i</sub>))²
+          </p>
+        </section>
+      
+        <!-- Exemple de Code -->
+        <section class="exemple">
+          <h4>Exemple de Code en Python</h4>
+          <p>
+            Voici un exemple de code utilisant <code>scikit-learn</code> pour entraîner un modèle de régression linéaire et visualiser le résultat.
+          </p>
+          <pre><code class="python">
+      import numpy as np
+      import matplotlib.pyplot as plt
+      from sklearn.linear_model import LinearRegression
+      
+      # Données d'exemple
+      X = np.array([1, 2, 3, 4, 5]).reshape(-1, 1)
+      y = np.array([3, 4, 2, 5, 6])
+      
+      # Création et entraînement du modèle
+      modele = LinearRegression()
+      modele.fit(X, y)
+      
+      # Prédiction sur un intervalle
+      X_test = np.linspace(0, 6, 100).reshape(-1, 1)
+      y_pred = modele.predict(X_test)
+      
+      # Visualisation des résultats
+      plt.scatter(X, y, color='blue', label='Données réelles')
+      plt.plot(X_test, y_pred, color='red', label='Régression linéaire')
+      plt.xlabel('Variable X')
+      plt.ylabel('Variable Y')
+      plt.title('Exemple de Régression Linéaire')
+      plt.legend()
+      plt.show()
+          </code></pre>
+        </section>
+      </article>
+      
     </section>
     <section id="exemples">
       <h2>Exemples de Code</h2>
